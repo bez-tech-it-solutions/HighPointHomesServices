@@ -1,0 +1,31 @@
+.navbar {
+    padding: 3px;
+}
+.navbar.scrolled {
+    box-shadow: 0 5px 10px 1px #00000019;
+}
+.navbar .navbar-nav {
+    gap: 30px;
+}
+.navbar .navbar-nav a.nav-link {
+    position: relative;
+    padding: 0;
+    /* font-size: 17px; */
+    font-weight: 600;
+    color: var(--theme-heading);
+}
+.navbar .navbar-nav a.nav-link::after {
+    content: "";
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #77C720;
+    border-radius: 30px;
+    transition: 0.3s all ease-in-out;
+}
+.navbar .navbar-nav a.nav-link.active::after,
+.navbar .navbar-nav a.nav-link:hover::after {
+    width: 100%;
+}

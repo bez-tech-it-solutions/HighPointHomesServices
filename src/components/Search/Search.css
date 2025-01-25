@@ -1,0 +1,25 @@
+.search {
+    position: relative;
+}
+.search input.form-control {
+    padding-left: 42px !important;
+}
+.search input.form-control::placeholder {
+    color: var(--theme-heading);
+}
+.search .search-input-wrapper > svg {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 13px;
+    font-size: 20px;
+    color: var(--theme-heading);
+}
+.search .result {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    border-radius: .5rem;
+    padding: 20px;
+    z-index: 20;
+}

@@ -1,0 +1,32 @@
+section.contact {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+section.contact .contact-details-box {
+    color: white;
+    background: var(--bs-dark)
+}
+section.contact .contact-details-box h5 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 35px !important;
+}
+section.contact .contact-details-box hr {
+    margin: .8rem 0;
+}
+section.contact .contact-details-box .contact-details svg {
+    color: var(--theme-primary);
+    font-size: 20px;
+    margin-top: -2px;
+}
+section.contact .contact-details-box .contact-details span {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+section.contact .card.contact-form {
+    border-color: var(--theme-primary);
+    background: #fff;
+}

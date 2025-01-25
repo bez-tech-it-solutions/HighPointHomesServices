@@ -1,0 +1,28 @@
+section.home-hero {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('/home-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 70px;
+    border-radius: 1.2rem;
+}
+section.home-hero .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+section.home-hero .hero-content > h1 {
+    font-size: 50px;
+    font-weight: 600;
+    color: #ffffff;
+}
+section.home-hero .hero-content > p {
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff;
+}

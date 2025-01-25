@@ -1,0 +1,64 @@
+section.advertisement {
+    margin: 0;
+    padding: 70px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://static.housesigma.com/desktop/assets/image/home_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+section.advertisement h3 {
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+}
+section.advertisement p {
+    color: #fff;
+}
+
+footer {
+    width: 100%;
+    padding: 50px 0;
+    position: absolute;
+    background: #000;
+    color: #fff;
+}
+footer a {
+    transition: .3s all ease-in-out;
+}
+footer a:hover {
+    color: var(--theme-primary) !important;
+}
+footer .social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+}
+footer .social-icons > div {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+footer .social-icons .facebook-icon {
+    background: #0866ff;
+}
+footer .social-icons .twitter-icon {
+    background: #1c96e8;
+}
+footer .social-icons .linkedin-icon {
+    background: #0a66c2;
+}
+footer .social-icons .instagram-icon {
+    background: #d300c5;
+}
+footer .social-icons .youtube-icon {
+    background: #ff0033;
+}
+footer .footer-heading {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}

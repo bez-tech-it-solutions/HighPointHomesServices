@@ -1,0 +1,38 @@
+section.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('/other-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 80px 0;
+    border-radius: 1.2rem;
+}
+
+section.hero .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+section.hero .hero-content h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+}
+@media (min-width: 992px) {
+    section.hero .hero-content h1 {
+        font-size: 50px;
+    }
+}
+section.hero .hero-content p {
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+}

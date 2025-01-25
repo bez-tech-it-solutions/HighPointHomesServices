@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --theme-primary: #77C720;
+    --theme-primary-hover: #77c720cc;
+    --theme-heading: #222b32;
+    --theme-body: #556670;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--theme-primary);
+    border-radius: 30px;
+}
+
+body {
+    padding: 80px 0 0 0;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: var(--theme-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    color: var(--theme-heading);
+}
+
+a {
+    text-decoration: none;
+    color: var(--theme-primary);
+}
+
+section {
+    margin-bottom: 60px;
+}
+@media (min-width: 992px) {
+    section {
+        margin-bottom: 80px;
+    }
+}
+@media (min-width: 1200px) {
+    section {
+        margin-bottom: 100px;
+    }
+}
+
+input.form-control,
+textarea.form-control,
+select.form-select {
+    padding: 13px 20px 14px 20px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #0000001a;
+    border-radius: .5rem;
+    resize: none;
+}
+input.form-control:focus,
+textarea.form-control:focus,
+select.form-select:focus {
+    border-color: var(--theme-primary);
+}
+
+button.btn,
+a.btn {
+    padding: 10px 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: .5rem;
+    box-shadow: none !important;
+    border-color: var(--theme-primary) !important;
+    transition: .2s all ease-in-out;
+}
+
+.radius {
+    border-radius: 1rem;
+}
+
+.section-heading {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.card {
+    border-radius: 1rem;
+}
+.card.shadow {
+    box-shadow: 0 4px 10px -2px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06) !important;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+.card.skeleton .placeholder-img {
+    background: #e0e0e0;
+    height: 230px;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+.card.skeleton .placeholder-title,
+.card.skeleton .placeholder-text {
+    background: #e0e0e0;
+    height: 20px;
+    margin: 10px 0;
+}
+.card .card-img-wrapper {
+    position: relative;
+}
+.card .card-img-wrapper span {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 11px;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+.card .text-bg-primary {
+    background: var(--theme-primary) !important;
+    box-shadow: 0 3px 8px 1px #00000028;
+}
+.card img.card-img-top {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    height: 230px;
+    object-fit: cover;
+    object-position: center;
+}
+.card .card-body {
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+.card .card-title {
+    font-weight: 600;
+    color: var(--theme-heading);
+}
+.card .card-footer span {
+    font-size: 15px;
+    font-weight: 600;
+}
+.card .card-text {
+    font-size: 15px;
+    color: var(--theme-body);
+}
+.card .card-footer svg {
+    color: var(--theme-primary);
+}
+
+.slick-prev {
+    top: 103% !important;
+    left: calc(50% - 40px) !important;
+    z-index: 10 !important;
+}
+.slick-next {
+    top: 103% !important;
+    right: calc(50% - 40px) !important;
+    z-index: 10 !important;
+}
+.slick-prev:before, .slick-next:before {
+    font-family: none !important;
+    font-size: 35px !important;
+    opacity: 1 !important;
+    color: #000 !important;
+}
+
+.main-info {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://static.housesigma.com/desktop/assets/image/home_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 8px 30px;
+}
+.main-info h1 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.main-info span {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+section.single-property .table {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+section.single-property .table tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section.single-property .table tr strong {
+    font-weight: 700;
+    color: #000;
+}
+
+
+.property-media .slick-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+    background: #000;
+}

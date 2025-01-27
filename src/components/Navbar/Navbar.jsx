@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import { googleLogout } from '@react-oauth/google'
@@ -63,11 +64,14 @@ const Navbar = () => {
                                 <NavLink to="/about" className="nav-link">About</NavLink>
                             </li>
                             <li className="nav-item">
+                                <NavLink to="/properties" className="nav-link">Properties</NavLink>
+                            </li>
+                            {/* <li className="nav-item">
                                 <NavLink to="/properties?TransactionType=For Lease" className={() => `${getActiveClass("For Lease")} nav-link`}>For Lease</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink to="/properties?TransactionType=For Sale" className={() => `${getActiveClass("For Sale")} nav-link`}>For Sale</NavLink>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <NavLink to="/contact" className="nav-link">Contact</NavLink>
                             </li>

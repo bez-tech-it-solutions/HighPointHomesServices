@@ -18,3 +18,17 @@
     border-radius: .5rem;
     padding: 20px;
 }
+.price-range button {
+    padding: 13px 20px 14px 20px !important;
+    border-color: #0000001a !important;
+    border-radius: .5rem !important;
+}
+.price-range button:focus {
+    border-color: var(--theme-primary) !important;
+}
+.price-range .dropdown-menu {
+    width: 350px !important;
+}
+button.clear {
+    padding: 13px 20px 14px 20px !important;
+}

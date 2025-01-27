@@ -108,9 +108,10 @@ const Properties = () => {
                         </div>
                         <div className="card-body">
                             <div className="d-flex justify-content-between mb-3">
-                                <h5 className="card-title">{item.json_string?.PropertySubType}</h5>
+                                <h5 className="card-title">{item.json_string?.UnparsedAddress}</h5>
                                 <strong>${item.ListPrice}</strong>
                             </div>
+                            <p className="card-text">{item.json_string.PropertySubType || "N/A"}</p>
                             <p className="card-text">
                                 {truncateText(item.json_string?.CrossStreet || "N/A", 120)}
                             </p>
@@ -152,7 +153,7 @@ const Properties = () => {
 
             <section className="mb-5">
                 <div className="container">
-                    <SearchFilter properties={properties} query={query} handleChange={handleChange} loading={loading} />
+                    <SearchFilter properties={properties} query={query} setQuery={setQuery} handleChange={handleChange} loading={loading} />
                 </div>
             </section>
 

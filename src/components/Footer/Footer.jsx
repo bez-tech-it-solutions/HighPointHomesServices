@@ -108,7 +108,7 @@ const Footer = () => {
                             <h4 className='footer-heading'>Our Properties</h4>
                             <div className="d-flex flex-column gap-2">
                                 {[...new Set(properties.map(item => item.PropertySubType))].map((type, index) => (
-                                    <Link key={index} to="/properties/" className='text-light'>{type}</Link>
+                                    <Link key={index} to={`/properties?PropertySubType=${type}`} className='text-light'>{type}</Link>
                                 ))}
                             </div>
                         </div>

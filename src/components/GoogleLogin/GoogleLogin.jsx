@@ -1,12 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useGoogleLogin } from '@react-oauth/google'
 import { FaGoogle } from 'react-icons/fa6'
 import { saveToLocalStorage } from '../../utils/localStorage'
 import axios from 'axios'
 
-const GoogleLogin = ({ setProfile, className }) => {
+const GoogleLogin = ({ setProfile, redirect = null, className }) => {
+    const navigate = useNavigate();
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -28,6 +30,7 @@ const GoogleLogin = ({ setProfile, className }) => {
             if (response && response.data) {
                 saveToLocalStorage({ profile: response.data })
                 setProfile && setProfile(response.data);
+                redirect && navigate(redirect);
             }
         } catch (error) {
             console.log(error);

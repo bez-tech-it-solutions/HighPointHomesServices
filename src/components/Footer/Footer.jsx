@@ -102,6 +102,7 @@ const Footer = () => {
                                 <Link to="/properties?TransactionType=For Lease" className='text-light'>For Lease</Link>
                                 <Link to="/properties?TransactionType=For Sale" className='text-light'>For Sale</Link>
                                 <Link to="/contact" className='text-light'>Contact</Link>
+                                <Link to="/privacy-policy" className='text-light'>Privacy Policy</Link>
                             </div>
                         </div>
                         <div className="col-lg-3 col-xl-2 mb-5 mb-lg-0">

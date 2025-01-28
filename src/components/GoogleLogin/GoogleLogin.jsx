@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react'
-import { useGoogleLogin } from "@react-oauth/google"
+import { useGoogleLogin } from '@react-oauth/google'
 import { FaGoogle } from 'react-icons/fa6'
-import { saveToLocalStorage } from "../../utils/localStorage";
+import { saveToLocalStorage } from '../../utils/localStorage'
 import axios from 'axios'
 
 const GoogleLogin = ({ setProfile, className }) => {
@@ -24,9 +24,10 @@ const GoogleLogin = ({ setProfile, className }) => {
         try {
             const options = { headers: { Authorization: `Bearer ${user.access_token}`, Accept: 'application/json' } };
             const response = await axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, options);
+
             if (response && response.data) {
                 saveToLocalStorage({ profile: response.data })
-                setProfile(response.data);
+                setProfile && setProfile(response.data);
             }
         } catch (error) {
             console.log(error);
@@ -35,7 +36,7 @@ const GoogleLogin = ({ setProfile, className }) => {
 
 
     return (
-        <button className={`btn btn-dark my-2 my-sm-0 d-flex justify-content-center align-items-center gap-3 ${className}`} style={{fontSize: '15px'}} onClick={login}>
+        <button className={`btn btn-dark d-flex justify-content-center align-items-center gap-3 ${className}`} style={{fontSize: '15px'}} onClick={login}>
             <FaGoogle size={18} /> Login with Google
         </button>
     )

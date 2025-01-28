@@ -20,8 +20,8 @@ const ResetPassword = () => {
             const response = await axios.post(`https://api.teintoo.com/api.php/reset-password?token=${token}`, JSON.stringify(formData), headers);
 
             if (response.status === 200) {
-                setMessage("");
-                console.log(response.data);
+                setMessage(response.data.message);
+                // console.log(response.data);
             }
         } catch (error) {
             if (error.response.data.status === 400) {

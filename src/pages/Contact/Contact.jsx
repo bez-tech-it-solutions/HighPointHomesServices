@@ -66,15 +66,15 @@ const Contact = () => {
                                         <h5 className="card-title mb-4">Info location</h5>
                                         <div className="d-flex align-items-start gap-3 mb-3">
                                             <span><LuHouse /></span>
-                                            <span>PO Box 112233 Dummy Street West Victoria Oshawa, ON, Canad</span>
+                                            <span>PO Box 112233 Dummy Street West Victoria Oshawa, ON, Canada</span>
                                         </div>
                                         <div className="d-flex align-items-start gap-3  mb-3">
                                             <span><LuPhone /></span>
-                                            <span>(+1) 647-123-4567</span>
+                                            <span><a href="tel:(+1) 647-123-4567" className='text-white'>(+1) 647-123-4567</a></span>
                                         </div>
                                         <div className="d-flex align-items-start gap-3  mb-3">
                                             <span><LuMail /></span>
-                                            <span>info@highpointhomeservices.ca</span>
+                                            <span><a href="mailto:info@highpointhomeservices.ca" className='text-white'>info@highpointhomeservices.ca</a></span>
                                         </div>
                                         <div className="d-flex align-items-start gap-3">
                                             <span><LuGlobe /></span>

@@ -35,8 +35,8 @@ const GoogleLogin = ({ setProfile, className }) => {
 
 
     return (
-        <button className={`btn btn-primary my-2 my-sm-0 d-flex justify-content-center align-items-center gap-2 ${className}`} onClick={login}>
-            <FaGoogle size={20} /> Login with Google
+        <button className={`btn btn-dark my-2 my-sm-0 d-flex justify-content-center align-items-center gap-3 ${className}`} style={{fontSize: '15px'}} onClick={login}>
+            <FaGoogle size={18} /> Login with Google
         </button>
     )
 }

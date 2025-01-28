@@ -94,7 +94,7 @@ const Navbar = () => {
                                 </div>
                             </div>
                         ) : (
-                            <button type="button" className="btn btn-primary my-2 my-sm-0" data-bs-toggle="modal" data-bs-target="#modalId">Register</button>
+                            <Link to="/authenticate" className="btn btn-primary my-2 my-sm-0">Register</Link>
                         )}
                     </div>
                 </div>

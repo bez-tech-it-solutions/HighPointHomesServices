@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { saveToLocalStorage } from '../../utils/localStorage'
 import GoogleLogin from '../GoogleLogin/GoogleLogin'
 import axios from 'axios'
 
-const ManualRegister = ({ setProfile, state }) => {
+const ManualRegister = ({ setProfile, state, redirect = null }) => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({ register: "" });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -25,6 +28,10 @@ const ManualRegister = ({ setProfile, state }) => {
                 saveToLocalStorage({profile: response.data.message});
                 setProfile(response.data.message);
                 setFormData({});
+
+                if (redirect) {
+                    navigate(redirect);
+                }
             }
         } catch (error) {
             if (error.response.data.status === 400) {

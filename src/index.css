@@ -70,8 +70,10 @@ a.btn {
     letter-spacing: 0.5px;
     border-radius: .5rem;
     box-shadow: none !important;
-    border-color: var(--theme-primary) !important;
     transition: .2s all ease-in-out;
+}
+.btn-primary {
+    border-color: var(--theme-primary) !important;
 }
 
 .radius {

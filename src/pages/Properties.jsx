@@ -18,9 +18,6 @@ const Properties = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
-    console.log(JSON.stringify(formData));
-    
-
     const fetchProperties = useCallback(async (queryParam = null, pageNumber) => {
         setLoading(true);
         setError(null);
@@ -35,7 +32,7 @@ const Properties = () => {
                         const { data, pagination } = response;
                         setProperties(data || []);
 
-                        if (queryParam) {
+                        if (queryParam && formData) {
                             saveToHistory('search', `${JSON.stringify(formData)}`);
                         }
 
@@ -158,7 +155,7 @@ const Properties = () => {
                         <div className="alert alert-danger text-center" role="alert">{error}</div>
                     )}
 
-                    {!loading && (
+                    {!loading && properties.length > 0 && (
                         <Pagination
                             totalPages={totalPages}
                             currentPage={currentPage}
@@ -167,7 +164,13 @@ const Properties = () => {
                     )}
 
                     <div className="row gy-5">
-                        {loading ? renderSkeletons(3) : renderProperties()}
+                        {loading ? (
+                            renderSkeletons(3)
+                        ) : properties.length > 0 ? (
+                            renderProperties()
+                        ) : (
+                            <div className="alert alert-danger text-center" role="alert">No Property Available</div>
+                        )}
                     </div>
 
                     {!loading && (

@@ -302,7 +302,7 @@ const SingleProperty = () => {
             </section>
 
             <div className="container mb-5">
-                <PropertySlider variant={property.TransactionType} slidesToShow={3} slidesToScroll={1} />
+                <PropertySlider params={{TransactionType: property.TransactionType}} slidesToShow={3} slidesToScroll={1} />
             </div>
         </div>
     );

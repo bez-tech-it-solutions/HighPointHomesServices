@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { LuBed, LuBath } from "react-icons/lu";
 import { fetchApi } from "../../utils/fetchApi";
 import { truncateText } from "../../utils/truncateText";
+import { objectToQueryStr } from "../../utils/objectToQueryStr";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -11,7 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./PropertySlider.css";
 
 
-const PropertySlider = ({ variant, slidesToShow, slidesToScroll, dots }) => {
+const PropertySlider = ({ params = null, slidesToShow, slidesToScroll, dots }) => {
     const [properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -33,12 +34,14 @@ const PropertySlider = ({ variant, slidesToShow, slidesToScroll, dots }) => {
     const fetchProperties = useCallback(async () => {
         setLoading(true);
 
+        const queryStr = objectToQueryStr(params);
+        const path = queryStr ? `/properties?${queryStr}&` : "/properties";
         await fetchApi({
-            path: `/properties?TransactionType=${variant}&limit=10`,
+            path: `${path}limit=10`,
             setLoading,
             setState: (response) => setProperties(response.data || []),
         });
-    }, [variant]);
+    }, [params]);
 
     useEffect(() => {
         fetchProperties();

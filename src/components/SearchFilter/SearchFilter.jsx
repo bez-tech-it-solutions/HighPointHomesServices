@@ -27,8 +27,14 @@ const SearchFilter = ({ formData, handleChange, handleSubmit, clearFilter }) => 
         fetchProperties();
     }, [fetchProperties]);
 
-    const extractUniqueSorted = (key, filterFn = () => true, sortFn = (a, b) => a - b) => {
-        return [...new Set(properties.map(item => item[key]).filter(filterFn))].sort(sortFn);
+    const extractUniqueSorted = (key, filterFn = () => true, sortFn = (a, b) => a - b, transformFn = (v) => v) => {
+        let values = [...new Set(properties.map(item => item[key]).filter(filterFn))].sort(sortFn);
+
+        if (key === "BedroomsTotal" || key === "BathroomsTotalInteger") {
+            values = values.filter(val => val < 4).concat(values.some(val => val > 4) ? ["4+"] : []);
+        }
+
+        return values.map(transformFn);
     };
 
     return (

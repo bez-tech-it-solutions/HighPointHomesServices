@@ -29,7 +29,7 @@ const Home = () => {
             <section className="selling-properties">
                 <div className="container">
                     <h1 className="section-heading text-center mb-5">Top Properties for Sale</h1>
-                    <PropertySlider variant={"For Sale"} slidesToShow={3} slidesToScroll={1} />
+                    <PropertySlider params={{TransactionType: "For Sale"}} slidesToShow={3} slidesToScroll={1} />
                 </div>
             </section>
 
@@ -37,7 +37,7 @@ const Home = () => {
             <section className="rental-properties">
                 <div className="container">
                     <h1 className="section-heading text-center mb-5">Top Properties for Rent</h1>
-                    <PropertySlider variant={"For Lease"} slidesToShow={3} slidesToScroll={1} />
+                    <PropertySlider params={{TransactionType: "For Lease"}} slidesToShow={3} slidesToScroll={1} />
                 </div>
             </section>
 

@@ -1,5 +1,5 @@
 .navbar {
-    padding: 3px;
+    padding: 5px 0;
 }
 .navbar.scrolled {
     box-shadow: 0 5px 10px 1px #00000019;

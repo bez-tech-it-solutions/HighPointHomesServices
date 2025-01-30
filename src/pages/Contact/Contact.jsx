@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { LuHouse, LuGlobe, LuPhone, LuMail } from 'react-icons/lu'
+import { LuMap, LuGlobe, LuPhone, LuMail } from 'react-icons/lu'
 import HeroSection from '../../components/HeroSection/HeroSection'
 import axios from 'axios'
 import './Contact.css'
 
 const Contact = () => {
-    const [formData, setFormData] = useState({ register: "" });
+    const [formData, setFormData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
@@ -17,16 +17,19 @@ const Contact = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post("https://api.teintoo.com/api.php/contact", JSON.stringify(formData), {
-                headers: { 'Content-Type': 'application/json' },
-            });
-            
+            const headers = { headers: { 'Content-Type': 'application/json' } };
+            const response = await axios.post("https://api.teintoo.com/api.php/contact", JSON.stringify(formData), headers);
+
             if (response.status === 200) {
                 setError("");
                 setSuccess(response.data.message);
                 setFormData({});
+            } else {
+                console.log(response);
             }
         } catch (error) {
+            console.log(error);
+
             if (error.response.data.status === 400) {
                 setError(error.response.data.message);
             }
@@ -65,20 +68,20 @@ const Contact = () => {
                                     <div className="contact-details">
                                         <h5 className="card-title mb-4">Info location</h5>
                                         <div className="d-flex align-items-start gap-3 mb-3">
-                                            <span><LuHouse /></span>
-                                            <span>PO Box 112233 Dummy Street West Victoria Oshawa, ON, Canada</span>
+                                            <span><LuMap /></span>
+                                            <span>3119 SHEPPARD AVE EAST #101, TORONTO, Ontario, M1T3J8</span>
                                         </div>
-                                        <div className="d-flex align-items-start gap-3  mb-3">
+                                        <div className="d-flex align-items-start gap-3 mb-3">
                                             <span><LuPhone /></span>
-                                            <span><a href="tel:(+1) 647-123-4567" className='text-white'>(+1) 647-123-4567</a></span>
+                                            <span><a href="tel:647-883-9619" className='text-white'>647-883-9619</a></span>
                                         </div>
-                                        <div className="d-flex align-items-start gap-3  mb-3">
+                                        <div className="d-flex align-items-start gap-3 mb-3">
                                             <span><LuMail /></span>
-                                            <span><a href="mailto:info@highpointhomeservices.ca" className='text-white'>info@highpointhomeservices.ca</a></span>
+                                            <span><a href="mailto:info@4yourhouse.ca" className='text-white'>info@4yourhouse.ca</a></span>
                                         </div>
                                         <div className="d-flex align-items-start gap-3">
                                             <span><LuGlobe /></span>
-                                            <span>www.highpointhomeservices.ca</span>
+                                            <span>www.4yourhouse.ca</span>
                                         </div>
                                     </div>
                                 </div>

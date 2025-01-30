@@ -50,7 +50,7 @@ const Home = () => {
                         </div>
                         <div className="col-lg-6">
                             <h1 className="section-heading mb-4">Why Choose Us?</h1>
-                            <p className='mb-5'>At High Point Home Services, we specialize in turning dreams of home ownership into reality. With extensive expertise in the Canadian real estate market, we offer a personalized approach to help you find the perfect property that suits your lifestyle and budget. Our seamless home buying process ensures a stress free experience, supported by a trusted network of local professionals and a commitment to delivering exceptional service with transparency and integrity. Let us guide you every step of the way. Finding you a perfect space is our mission!.</p>
+                            <p className='mb-5'>At 4 Your House, we specialize in turning dreams of home ownership into reality. With extensive expertise in the Canadian real estate market, we offer a personalized approach to help you find the perfect property that suits your lifestyle and budget. Our seamless home buying process ensures a stress free experience, supported by a trusted network of local professionals and a commitment to delivering exceptional service with transparency and integrity. Let us guide you every step of the way. Finding you a perfect space is our mission!.</p>
                             <Link to="/about" className="btn btn-primary">Read More</Link>
                         </div>
                     </div>

@@ -42,7 +42,7 @@ const Navbar = () => {
             <nav className={`navbar navbar-expand-md fixed-top navbar-light bg-white ${isScrolled ? "scrolled" : ""}`}>
                 <div className="container">
                     <Link to="/" className="navbar-brand">
-                        <img src="/logo.svg" width={60} alt="" />
+                        <img src="/logo-black.webp" width={100} alt="" />
                     </Link>
                     <button
                         className="navbar-toggler d-lg-none"

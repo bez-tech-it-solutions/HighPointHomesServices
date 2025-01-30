@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <p className='mb-5'><strong>High Point Homes Services</strong> ("we," "our," or "us") values your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard the information you provide while using our website. By accessing or using our website, you agree to the terms outlined in this Privacy Policy.</p>
+                            <p className='mb-5'><strong>4 Your House</strong>("we," "our," or "us") values your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard the information you provide while using our website. By accessing or using our website, you agree to the terms outlined in this Privacy Policy.</p>
                             <h4 className='mb-4'>1. Information We Collect</h4>
                             <p className='mb-3'>We may collect the following types of information:</p>
                             <ol className='mb-5'>
@@ -65,7 +65,7 @@ const PrivacyPolicy = () => {
                                 <li><strong>Deletion:</strong> Request the deletion of your personal data, subject to legal or contractual obligations.</li>
                                 <li><strong>Opt-Out:</strong> Unsubscribe from marketing emails or opt out of cookies.</li>
                             </ul>
-                            <p className='mb-5'>To exercise these rights, contact us at <strong>info@highpointhomeservices.ca</strong></p>
+                            <p className='mb-5'>To exercise these rights, contact us at <strong>info@4yourhouse.ca</strong></p>
 
                             <h4 className='mb-4'>6. Cookies Policy</h4>
                             <p className='mb-3'>Our website uses cookies to:</p>
@@ -86,8 +86,8 @@ const PrivacyPolicy = () => {
 
                             <h4 className='mb-4'>10. Contact Us</h4>
                             <p className='mb-4'>If you have any questions or concerns regarding this Privacy Policy, please contact us at:</p>
-                            <p className='mb-2'><strong>Email:</strong> info@highpointhomeservices.ca</p>
-                            <p><strong>Address:</strong> PO Box 112233 Dummy Street West Victoria Oshawa, ON, Canada</p>
+                            <p className='mb-2'><strong>Email:</strong> info@4yourhouse.ca</p>
+                            <p><strong>Address:</strong> 3119 SHEPPARD AVE EAST #101, TORONTO, Ontario, M1T3J8</p>
                         </div>
                     </div>
                 </div>

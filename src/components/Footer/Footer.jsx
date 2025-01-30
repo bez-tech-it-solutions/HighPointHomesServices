@@ -47,13 +47,14 @@ const Footer = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post("https://api.teintoo.com/api.php/subscribe", JSON.stringify(formData), {
-                headers: { 'Content-Type': 'application/json' },
-            });
-            
+            const headers = { headers: { 'Content-Type': 'application/json' } };
+            const response = await axios.post("https://api.teintoo.com/api.php/subscribe", JSON.stringify(formData), headers);
+
             if (response.status === 200) {
                 setMessage("Successfully subscribed");
                 setFormData({});
+            } else {
+                console.log(response);
             }
         } catch (error) {
             if (error.response.data.status === 400) {
@@ -85,8 +86,8 @@ const Footer = () => {
                 <div className="container">
                     <div className="row gx-lg-5">
                         <div className="col-lg-3 col-xl-4 mb-5 mb-lg-0">
-                            <img src="/logo-white.svg" className='mb-3' width={100} alt="" />
-                            <p className="mb-0">High Point Home Services is a leading real estate consultancy in Canada. We have helped countless clients discover their dream homes and secure the perfect properties tailored to their unique needs.</p>
+                            <img src="/logo-white.webp" className='mb-4' width={130} alt="" />
+                            <p className="mb-0">4 Your House is a leading real estate consultancy in Canada. We have helped countless clients discover their dream homes and secure the perfect properties tailored to their unique needs.</p>
                             {/* <div className="social-icons">
                                 <div className="facebook-icon">
                                     <FaFacebookF />

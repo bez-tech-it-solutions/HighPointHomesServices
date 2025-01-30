@@ -49,21 +49,21 @@ const Contact = () => {
                         <div className="col-lg-5 col-xl-4 mb-4 mb-lg-0">
                             <div className="card contact-details-box shadow">
                                 <div className="card-body p-4">
-                                    <div className="mb-5">
-                                    <h5 className="card-title mb-4">Open Hours</h5>
-                                    <div className="d-flex align-items-center justify-content-between">
-                                        <span>Monday - Friday</span>
-                                        <span>09 AM - 07 PM</span>
-                                    </div><hr />
-                                    <div className="d-flex align-items-center justify-content-between">
-                                        <span>Saturday</span>
-                                        <span>09 AM - 02 PM</span>
-                                    </div><hr />
-                                    <div className="d-flex align-items-center justify-content-between">
-                                        <span>Sunday</span>
-                                        <span>Closed</span>
-                                    </div><hr />
-                                    </div>
+                                    {/* <div className="mb-5">
+                                        <h5 className="card-title mb-4">Open Hours</h5>
+                                        <div className="d-flex align-items-center justify-content-between">
+                                            <span>Monday - Friday</span>
+                                            <span>09 AM - 07 PM</span>
+                                        </div><hr />
+                                        <div className="d-flex align-items-center justify-content-between">
+                                            <span>Saturday</span>
+                                            <span>09 AM - 02 PM</span>
+                                        </div><hr />
+                                        <div className="d-flex align-items-center justify-content-between">
+                                            <span>Sunday</span>
+                                            <span>Closed</span>
+                                        </div><hr />
+                                    </div> */}
 
                                     <div className="contact-details">
                                         <h5 className="card-title mb-4">Info location</h5>

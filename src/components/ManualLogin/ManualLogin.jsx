@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { saveToLocalStorage } from '../../utils/localStorage'
+import { validateEmail } from '../../utils/validateEmail'
 import GoogleLogin from '../GoogleLogin/GoogleLogin'
 import axios from 'axios'
 
@@ -11,8 +12,15 @@ const ManualLogin = ({ setProfile = null, state = null, redirect = null }) => {
     const [formData, setFormData] = useState({ login: "" });
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState(null);
+    const [emailStatus, setEmailStatus] = useState(false);
 
-    const handleChange = ({target}) => setFormData({ ...formData, [target.name]: target.value });
+    const handleChange = ({target}) => {
+        setFormData({ ...formData, [target.name]: target.value });
+
+        if (target.name === "email") {
+            validateEmail(target.value, setEmailStatus);
+        }
+    }
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -51,12 +59,26 @@ const ManualLogin = ({ setProfile = null, state = null, redirect = null }) => {
                 </div>
             ) : ""}
 
-            <div className="mb-3">
-                <input type="email" name="email" value={formData?.email || ""} className="form-control" placeholder="Your Email" onChange={handleChange} required />
-            </div>
-            <div className="mb-4">
-                <input type="password" name="password" value={formData?.password || ""} className="form-control" placeholder="Your Password" onChange={handleChange} required />
-            </div>
+            <input
+                type="email"
+                name="email"
+                value={formData?.email || ""}
+                className="form-control mb-3"
+                placeholder="Your Email"
+                onChange={handleChange}
+                required
+            />
+
+            <input
+                type="password"
+                name="password"
+                value={formData?.password || ""}
+                className="form-control mb-4"
+                placeholder="Your Password"
+                onChange={handleChange}
+                disabled={(formData.email && emailStatus) ? false: true}
+                required
+            />
 
             <button type="submit" disabled={loading} className="btn btn-primary w-100 mb-2">Login</button>
             <GoogleLogin setProfile={setProfile} redirect="/" className="w-100" />

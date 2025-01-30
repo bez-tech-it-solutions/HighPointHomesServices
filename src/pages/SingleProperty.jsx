@@ -6,6 +6,7 @@ import { LuMapPin } from 'react-icons/lu';
 import { FaSquareCheck } from "react-icons/fa6";
 import { fetchApi } from '../utils/fetchApi';
 import { loadFromLocalStorage } from '../utils/localStorage'
+import { saveToHistory } from '../utils/saveToHistory'
 import Slider from "react-slick";
 import PropertySlider from '../components/PropertySlider/PropertySlider';
 import LoginModal from '../components/LoginModal/LoginModal'
@@ -75,7 +76,8 @@ const SingleProperty = () => {
 
     useEffect(() => {
         fetchProperty();
-    }, [fetchProperty]);
+        saveToHistory('property', listingKey);
+    }, [fetchProperty, listingKey]);
 
     if (loading) {
         return (

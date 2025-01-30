@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaCheck } from 'react-icons/fa6'
 import { fetchApi } from "../../utils/fetchApi"
 import { loadFromLocalStorage } from '../../utils/localStorage'
+import { validateEmail } from '../../utils/validateEmail'
 import LoginModal from '../../components/LoginModal/LoginModal'
 import axios from 'axios'
 import './Footer.css'
@@ -29,7 +30,17 @@ const Footer = () => {
         fetchProperties();
     }, [fetchProperties]);
 
-    const handleChange = ({ target }) => setFormData({ ...formData, [target.name]: target.value });
+    const handleChange = ({target}) => {
+        setFormData({ ...formData, [target.name]: target.value });
+
+        if (target.name === "email") {
+            if (target.value === "") {
+                setMessage(null);
+            } else {
+                validateEmail(target.value, null, setMessage);
+            }
+        }
+    }
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -109,7 +120,7 @@ const Footer = () => {
                             <h4 className='footer-heading'>Our Properties</h4>
                             <div className="d-flex flex-column gap-2">
                                 {[...new Set(properties.map(item => item.PropertySubType))].map((type, index) => (
-                                    <Link key={index} to={`/properties?PropertySubType=${type}`} className='text-light'>{type}</Link>
+                                    <span key={index} className='text-light'>{type}</span>
                                 ))}
                             </div>
                         </div>

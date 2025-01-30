@@ -1,80 +1,75 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect, useCallback } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LuBed, LuBath, LuMapPin } from "react-icons/lu";
 import { fetchApi } from "../utils/fetchApi";
 import { truncateText } from "../utils/truncateText";
 import { loadFromLocalStorage, saveToLocalStorage } from "../utils/localStorage";
+import { objectToQueryStr } from "../utils/objectToQueryStr";
+import { saveToHistory } from "../utils/saveToHistory";
 import HeroSection from "../components/HeroSection/HeroSection";
 import SearchFilter from "../components/SearchFilter/SearchFilter";
 import Pagination from "../components/Pagination/Pagination";
 
 const Properties = () => {
-    const { search } = useLocation();
     const [properties, setProperties] = useState(loadFromLocalStorage("properties", []));
+    const [formData, setFormData] = useState(loadFromLocalStorage("filter", {}));
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [query, setQuery] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
-    // Construct the API path dynamically
-    const constructApiPath = (queryParam, pageNumber, query) => {
-        let queryString = "?";
-        if (queryParam) queryString += `${queryParam.replace(/\?/g, "")}&`;
-        if (query) {
-            Object.entries(query).forEach(([key, value]) => {
-                queryString += `${key}=${value}&`;
-            });
-        }
-        queryString += `page=${pageNumber}&limit=12`;
-        return `/properties${queryString}`;
-    };
+    console.log(JSON.stringify(formData));
+    
 
-    // Fetch properties from the API
-    const fetchProperties = useCallback(async (queryParam, pageNumber, query) => {
+    const fetchProperties = useCallback(async (queryParam = null, pageNumber) => {
         setLoading(true);
         setError(null);
 
         try {
-            const path = constructApiPath(queryParam, pageNumber, query);
+            const path = (queryParam ? `/properties?${queryParam + "&"}` : "/properties?");
             await fetchApi({
-                path,
+                path:  path + `page=${pageNumber}&limit=12`,
                 setLoading,
                 setState: response => {
                     if (response.status === 200) {
                         const { data, pagination } = response;
                         setProperties(data || []);
+
+                        if (queryParam) {
+                            saveToHistory('search', `${JSON.stringify(formData)}`);
+                        }
+
                         saveToLocalStorage({ properties: data });
                         setTotalPages(pagination?.totalPages || 1);
                     } else {
+                        console.log(response);
                         setError("An error occurred while fetching properties. Please try again later.");
                     }
                 }
             });
         } catch (err) {
-            setError("An error occurred while fetching properties. Please try again later.");
+            console.log(err);
+            setError("Ana error occurred while fetching properties. Please try again later.");
         } finally {
             setLoading(false);
         }
     }, []);
 
-    // useEffect(() => {
-    //     setQuery(null);
-    // }, [query]);
-
     useEffect(() => {
-        fetchProperties(search, currentPage, query);
-    }, [fetchProperties, search, currentPage, query]);
+        fetchProperties(null, currentPage);
+    }, [fetchProperties, currentPage]);
 
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
+    const handleChange = ({target}) => setFormData({ ...formData, [target.name]: target.value });
+    const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        fetchProperties(objectToQueryStr(formData), currentPage);
     };
 
-    const handleChange = ({ target }) => {
-        const { name, value } = target;
-        setQuery((prevQuery) => ({ ...prevQuery, [name]: value }));
-    };
+    const clearFilter = () => {
+        fetchProperties(null, currentPage);
+    }
 
     const renderSkeletons = (count) =>
         Array.from({ length: count }).map((_, index) => (
@@ -153,16 +148,14 @@ const Properties = () => {
 
             <section className="mb-5">
                 <div className="container">
-                    <SearchFilter properties={properties} query={query} setQuery={setQuery} handleChange={handleChange} loading={loading} />
+                    <SearchFilter formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} clearFilter={clearFilter} />
                 </div>
             </section>
 
             <section>
                 <div className="container">
                     {error && (
-                        <div className="alert alert-danger text-center" role="alert">
-                            {error}
-                        </div>
+                        <div className="alert alert-danger text-center" role="alert">{error}</div>
                     )}
 
                     {!loading && (

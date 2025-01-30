@@ -47,9 +47,8 @@ section {
     }
 }
 
-input.form-control,
-textarea.form-control,
-select.form-select {
+.form-control,
+.form-select {
     padding: 13px 20px 14px 20px !important;
     outline: none !important;
     box-shadow: none !important;
@@ -57,9 +56,8 @@ select.form-select {
     border-radius: .5rem;
     resize: none;
 }
-input.form-control:focus,
-textarea.form-control:focus,
-select.form-select:focus {
+.form-control:focus,
+.form-select:focus {
     border-color: var(--theme-primary);
 }
 

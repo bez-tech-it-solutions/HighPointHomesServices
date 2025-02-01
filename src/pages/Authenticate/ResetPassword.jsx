@@ -41,7 +41,7 @@ const ResetPassword = () => {
                 <div className="row">
                     <div className="col-10 col-sm-10 col-md-7 col-lg-4 mx-auto">
                         <Link to="/">
-                            <img src="/logo.svg" width={100} className='d-block mx-auto mb-3' alt="" />
+                            <img src="/logo-black.webp" width={100} className='d-block mx-auto mb-3' alt="" />
                         </Link>
 
                         <form onSubmit={handleSubmit}>

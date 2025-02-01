@@ -92,7 +92,7 @@ const ManualRegister = ({ setProfile = null, state = null, redirect = null }) =>
             />
 
             <button type="submit" disabled={loading} className="btn btn-primary w-100 mb-2">Register</button>
-            <GoogleLogin setProfile={setProfile} className="w-100" />
+            <GoogleLogin setProfile={setProfile} redirect="/" className="w-100" />
 
             {state ? <p className="text-center">Already a member? <a href="#" onClick={() => state(true)}>Login</a></p> : ""}
         </form>

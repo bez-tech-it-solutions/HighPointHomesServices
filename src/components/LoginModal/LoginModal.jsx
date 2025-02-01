@@ -28,9 +28,9 @@ const LoginModal = ({ setProfile }) => {
                     </div>
                     <div className="modal-body">
                         {formState ? (
-                            <ManualLogin setProfile={setProfile} state={setFormState} />
+                            <ManualLogin setProfile={setProfile} state={setFormState} redirect="/" />
                         ) : (
-                            <ManualRegister setProfile={setProfile} state={setFormState} />
+                            <ManualRegister setProfile={setProfile} state={setFormState} redirect="/" />
                         )}
                     </div>
                 </div>

@@ -56,8 +56,8 @@ const SearchFilter = ({ formData, handleChange, handleSubmit, clearFilter }) => 
                 <div className="row">
                     {[
                         { name: "PropertySubType", label: "Property Types", values: extractUniqueSorted("PropertySubType", Boolean) },
-                        { name: "minPrice", label: "Min", values: extractUniqueSorted("ListPrice") },
-                        { name: "maxPrice", label: "Max", values: extractUniqueSorted("ListPrice", (p) => (formData?.minPrice ? p >= parseInt(formData.minPrice) : true)) },
+                        // { name: "minPrice", label: "Min", values: extractUniqueSorted("ListPrice") },
+                        // { name: "maxPrice", label: "Max", values: extractUniqueSorted("ListPrice", (p) => (formData?.minPrice ? p >= parseInt(formData.minPrice) : true)) },
                         { name: "TransactionType", label: "Transaction Type", values: ["For Sale", "For Lease"] },
                         { name: "BedroomsTotal", label: "Bed", values: extractUniqueSorted("BedroomsTotal", (b) => b > 0) },
                         { name: "BathroomsTotalInteger", label: "Bath", values: extractUniqueSorted("BathroomsTotalInteger", (b) => b > 0) },
@@ -79,6 +79,28 @@ const SearchFilter = ({ formData, handleChange, handleSubmit, clearFilter }) => 
                             </select>
                         </div>
                     ))}
+
+                    <div className="col-6 col-lg-4 col-xl-2 mb-3">
+                        <input
+                            type="number"
+                            name="minPrice"
+                            value={formData?.minPrice || ""}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Min"
+                        />
+                    </div>
+
+                    <div className="col-6 col-lg-4 col-xl-2 mb-3">
+                        <input
+                            type="number"
+                            name="maxPrice"
+                            value={formData?.maxPrice || ""}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Max"
+                        />
+                    </div>
 
                     <div className="col-6 col-lg-4 col-xl-2">
                         <button type="submit" className="btn btn-primary w-100">Search</button>

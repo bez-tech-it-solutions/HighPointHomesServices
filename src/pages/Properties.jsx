@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { LuBed, LuBath, LuMapPin } from "react-icons/lu";
 import { fetchApi } from "../utils/fetchApi";
@@ -141,6 +142,11 @@ const Properties = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Canadian Homes for Sale & rent | 4 Your House Listings</title>
+                <meta name="description" content="Explore diverse properties for sale and rent in Canada. Find your dream home with 4 Your House." />
+            </Helmet>
+
             <HeroSection title="Properties" />
 
             <section className="mb-5">

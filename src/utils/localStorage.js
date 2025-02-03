@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 export const loadFromLocalStorage = (key, defaultValue) => {
     const storedValue = localStorage.getItem(key);
-
     if (storedValue === null) return defaultValue;
 
     try {

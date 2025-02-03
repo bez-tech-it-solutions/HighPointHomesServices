@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from "react-helmet-async";
 import { LuMap, LuGlobe, LuPhone, LuMail } from 'react-icons/lu'
 import HeroSection from '../../components/HeroSection/HeroSection'
 import axios from 'axios'
@@ -41,6 +42,11 @@ const Contact = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Contact 4 Your House | Real Estate Assistance</title>
+                <meta name="description" content="Reach out to 4 Your House for all your real estate needs across Canada." />
+            </Helmet>
+
             <HeroSection title="Contact Us" />
 
             <section className="contact">

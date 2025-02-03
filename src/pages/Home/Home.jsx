@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from 'react-router-dom'
 import Search from '../../components/Search/Search'
 import PropertySlider from '../../components/PropertySlider/PropertySlider'
@@ -6,6 +7,11 @@ import './Home.css'
 const Home = () => {
     return (
         <>
+            <Helmet>
+                <title>4 Your House: Top Real Estate Services in Canada</title>
+                <meta name="description" content="Buy, sell, or rent properties across Canada with 4 Your House's expert team guiding you." />
+            </Helmet>
+
             {/* ========== Hero Section ========== */}
             <section className="home-hero py-5">
                 <div className="container">

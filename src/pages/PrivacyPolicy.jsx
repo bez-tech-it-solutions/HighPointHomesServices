@@ -1,8 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import HeroSection from '../components/HeroSection/HeroSection'
 
 const PrivacyPolicy = () => {
     return (
         <>
+            <Helmet>
+                <title>Privacy Policy | 4 Your House Real Estate Canada</title>
+                <meta name="description" content="Review 4 Your House's Privacy Policy to understand how we protect your personal information in our Canadian real estate services." />
+            </Helmet>
+
             <HeroSection title="Privacy Policy" />
 
             <section className='text-dark'>

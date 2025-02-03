@@ -1,9 +1,16 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from 'react-router-dom'
 import HeroSection from '../../components/HeroSection/HeroSection'
 import './About.css'
 
 const About = () => {
     return (
+        <>
+        <Helmet>
+            <title>About 4 Your House | Trusted Canadian Realtors</title>
+            <meta name="description" content="Meet 4 Your House, Canada's trusted real estate agency committed to exceptional service." />
+        </Helmet>
+
         <main className='about'>
             <HeroSection title="About" />
 
@@ -22,6 +29,7 @@ const About = () => {
                 </div>
             </section>
         </main>
+        </>
     )
 }
 
